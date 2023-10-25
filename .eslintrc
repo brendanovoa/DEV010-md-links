@@ -4,5 +4,11 @@
   },
   "parserOptions": {
     "ecmaVersion": 8
+  },
+  "rules": {
+    // Agrega tus reglas específicas de ESLint aquí si es necesario
+    "no-console": "off", // Desactiva el error por console.log
+    "no-alert": "off",   // Desactiva el error por alert
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }]
   }
 }
