@@ -1,10 +1,11 @@
 // Aquí se invoca a la función con la ruta que queremos probar
-const mdLinks = require('./src/index');
+const index = require('./src/index');
+const { mdLinks } = index;
 
-mdLinks('prueba.md', true)
-  .then((links) => {
-    console.log(links);
-  });
-  .catch((error) => {
-    console.error(error);
-  });
+mdLinks('prueba.md')
+	.then((links) => {
+		console.log(links);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
