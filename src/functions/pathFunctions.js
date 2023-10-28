@@ -27,7 +27,6 @@ function existingRoute(route) {
 }
 /* const routeExists = fs.access(route);
 if (!routeExists) throw new Error('La ruta no existe');
-console.log('¿La ruta existe? ', routeExists);
 return routeExists; */
 
 // Función para verificar si son archivos markdown
