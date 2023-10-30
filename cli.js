@@ -9,3 +9,15 @@ mdLinks('prueba.md')
 	.catch((error) => {
 		console.error(error);
 	});
+
+mdLinks('prueba.md', true)
+	.then((links) => {
+		console.log(links);
+	})
+	.catch((error) => {
+		console.error(error);
+	});
+
+/*const options = {
+  validate: process.argv.includes('--validate'),
+}; */

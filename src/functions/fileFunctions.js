@@ -33,10 +33,10 @@ function fileContent(file) {
 
 // Función para encontrar links y retornarlos en un arreglo
 function linksArray(data, file) {
-	const tokens = md.parse(data);
-	// console.log(tokens);
+	// console.log(data);
+	const tokens = md.parse(data); 
 	const links = [];
-
+	// console.log(tokens);
 	tokens.map((token) => {
 		if (token.type === 'inline' && !token.content.startsWith('!')) {
 			const content = token.content;
@@ -50,6 +50,47 @@ function linksArray(data, file) {
 	});
 	return links;
 }
+
+// Función para validar links
+function validateLinks(links) {
+	// console.log('Validando links...');
+	return Promise.all(links.map((link) => {
+		return fetch(link.href)
+			.then((response) => {
+				if (response.ok) {
+					return response.text();
+				} else {
+					return {
+						...link,
+						status: response.status,
+						message: 'FAIL',
+					};
+				}
+			})
+			.then((data) => {
+				if (typeof data === 'string') {
+					return {
+						...link,
+						status: 200,
+						message: 'OK',
+					};
+				}
+				return data;
+			})
+			.catch((err) => {
+				return {
+					...link,
+					status: 'ERROR',
+					message: err.message,
+				};
+			});
+	}));
+}
+
+module.exports = {
+	fileContent, linksArray, validateLinks,
+};
+
 
 // Opcion con expresión regular
 /* const urlRex = /https?:\/\/[^\s]+/g;
@@ -66,10 +107,6 @@ const links = data.match(urlRex);*/
 	});
 	return links;
 }*/
-
-module.exports = {
-	fileContent, linksArray,
-};
 
 /*
 [{ `href`: URL encontrada

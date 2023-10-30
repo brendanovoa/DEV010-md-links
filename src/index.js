@@ -2,10 +2,10 @@ const pathFunctions = require('./functions/pathFunctions');
 const { typeofPath, transformPath, existingRoute, isMarkdown } = pathFunctions;
 
 const fileFunctions = require('./functions/fileFunctions');
-const { fileContent, linksArray } = fileFunctions;
+const { fileContent, linksArray, validateLinks } = fileFunctions;
 
 // Crear función mdLinks(path)
-function mdLinks(route) {
+function mdLinks(route, validate) {
 	// Crear una promesa que resuelva un array con los links
 	return new Promise((resolve, reject) => {
 		// Revisar si la ruta es relativa o absoluta
@@ -19,17 +19,25 @@ function mdLinks(route) {
 		}
 		// Comprobar que la ruta exista
 		existingRoute(resolvedPath)
-		// Revisar si es un archivo Markdown
+			// Revisar si es un archivo Markdown
 			.then(() => isMarkdown(resolvedPath))
-		// Leer el archivo y retornar su contenido
+			// Leer el archivo y retornar su contenido
 			.then(() => fileContent(resolvedPath))
-		// Encontrar links y retornarlos en un arreglo como resolución de la promesa
+			// Encontrar links y retornarlos en un arreglo como resolución de la promesa
 			.then((data) => {
 				const links = linksArray(data, resolvedPath);
-				// Resolver promesa
+				if (validate) {
+					// Validar links
+					return validateLinks(links);
+				} else {
+					return links;
+				}
+			})
+			// Resolver promesa
+			.then((links) => {
 				resolve(links);
 			})
-		// En caso de error rechazar la promesa
+			// En caso de error rechazar la promesa
 			.catch((error) => {
 				reject(error);
 			});
@@ -39,14 +47,6 @@ function mdLinks(route) {
 module.exports = {
 	mdLinks
 };
-
-/* mdLinks('prueba.md')
-	.then((links) => {
-		console.log(links);
-	})
-	.catch((error) => {
-		console.error(error);
-	});*/
 
 /*
 NOTAS:
