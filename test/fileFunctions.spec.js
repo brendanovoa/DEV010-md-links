@@ -29,18 +29,23 @@ describe('fileContent()', () => {
 // Devolver un array de links
 describe('linksArray()', () => {
 	it('debería extraer los enlaces de un archivo Markdown y devolver un array de objetos', () => {
-		const data = `
-		## 1. Links
+		const data = `## 1. Links
+
 		[Markdown](https://es.wikipedia.org/wiki/Markdown) 
+		
 		[Node.js](https://nodejs.org/)
+		
 		[Sitio oficial de npm (en inglés)](https://www.npmjs.com/)
+		
 		## 2. Imágenes
+		
 		![md-links](https://github.com/Laboratoria/bootcamp/assets/12631491/fc6bc380-7824-4fab-ab8f-7ab53cd9d0e4)`;
 		const file = '/Users/brenda/DEV010-md-links/prueba.md';
 		const result = linksArray(data, file);
 
 		// Verifica la longitud del resultado
 		// expect(result.length).toHaveLength(3);
+		console.log(result);
 
 		// Verifica que cada objeto tenga las propiedades correctas
 		result.forEach((link) => {

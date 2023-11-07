@@ -3,9 +3,25 @@
   "version": "0.1.0",
   "description": "Read markdown files and identify broken links",
   "type": "commonjs",
+  "main": "cli.js",
+  "bin": {
+    "md-links@brendanovoa": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brendanovoa/md-links.git"
+  },
   "engines": {
     "node": ">=16.x"
   },
+  "keywords": [
+    "Markdown",
+    "links",
+    "paths",
+    "validate"
+  ],
+  "author": "Brenda Gisel Hernández Novoa",
+  "license": "ISC",
   "bootcamp": {
     "createdAt": "2023-09-04T18:43:43.114Z",
     "version": "6.7.0",
@@ -22,6 +38,8 @@
     "test": "jest --coverage"
   },
   "dependencies": {
+    "cli-table3": "^0.6.3",
+    "colors": "^1.4.0",
     "markdown-it": "^13.0.2",
     "node-fetch": "^2.6.7"
   }
