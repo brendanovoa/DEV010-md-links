@@ -24,21 +24,43 @@ const options = {
 if (route) {
 	mdLinks(route, options.validate)
 		.then((links) => {
+			// Estructurar en tabla
+			const table = new Table({
+				head: [
+					'Link'.magenta.bold,
+					'Text'.magenta.bold,
+					'File'.magenta.bold,
+					'Status'.magenta.bold,
+					'Message'.magenta.bold,
+				],
+				colWidths: [30, 30, 30, 15, 15],
+				colAligns: ['left', 'left', 'left', 'center', 'center'],
+			});
 			// Aplicar colores a la salida
 			links.forEach((link) => {
 				const statusColor = link.status === 'OK' ? 'green' : (link.status === 'ERROR' ? 'red' : 'yellow');
 				const messageColor = link.message === 'OK' ? 'green' : (link.message === 'FAIL' ? 'red' : 'yellow');
 			
+				// Agregar filas a la tabla con colores
+				table.push([
+					link.href.brightBlue,
+					link.text.cyan,
+					link.file.white,
+					link.status[statusColor],
+					link.message[messageColor],
+				]);
+				/*
 				console.log(`Link: ${link.href.magenta}`);
 				console.log(`Text: ${link.text.brightBlue}`);
 				console.log(`File: ${link.file.cyan}`);
 				console.log(`Status: ${link.status[statusColor]}`);
 				console.log(`Message: ${link.message[messageColor]}`);
-				console.log('---');
+				console.log('---');*/
 			});
+			console.log(table.toString());
 		})
 		.catch((error) => {
-			console.error('Error: '.red + error.message);
+			console.error(`Error: ${error.message}`.red);
 		});
 }
 

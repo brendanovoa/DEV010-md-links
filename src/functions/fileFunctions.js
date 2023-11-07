@@ -17,30 +17,20 @@ function fileContent(file) {
 			throw err;
 		});
 }
-/* return new Promise ((resolve, reject) => {
-		console.log('Leyendo archivo...', file);
-		fs.readFile(file, 'utf-8', (err, data) => {
-			if (err) {
-				console.log('Error', err);
-				reject(err);
-			} else {
-				console.log('El contenido del archivo es: ', data);
-				resolve(data);
-			}
-		});
-	});
-}*/
 
 // Función para encontrar links y retornarlos en un arreglo
 function linksArray(data, file) {
 	// console.log(data);
 	const tokens = md.parse(data, {references: {}}); 
 	const links = [];
+	// console.log(tokens);
 	// console.log(tokens[0].children[4]);
 	tokens.map((token) => {
 		if (token.type === 'inline' && !token.content.startsWith('!')) {
 			const content = token.content;
-			const linkMatch = content.match(/\[(.*?)\]\((.*?)\)/);
+			const urlRex = /\[([^\]]+)\]\((https[^\s)]+)/;
+			//const urlRex = /\[(.*?)\]\((.*?)\)/;
+			const linkMatch = content.match(urlRex);
 			if (linkMatch) {
 				const text = linkMatch[1];
 				const href = linkMatch[2];
@@ -111,3 +101,17 @@ const links = data.match(urlRex);*/
 `text`: Texto que aparecía dentro del link
 `file`: Ruta del archivo donde se encontró el link }]
 */
+
+/* return new Promise ((resolve, reject) => {
+		console.log('Leyendo archivo...', file);
+		fs.readFile(file, 'utf-8', (err, data) => {
+			if (err) {
+				console.log('Error', err);
+				reject(err);
+			} else {
+				console.log('El contenido del archivo es: ', data);
+				resolve(data);
+			}
+		});
+	});
+}*/
