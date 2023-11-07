@@ -5,15 +5,15 @@ const fs = require('node:fs/promises');
 // Función para revisar si la ruta es relativa o absoluta
 function typeofPath(route) {
 	const absolutePath = path.isAbsolute(route);
-	console.log('¿La ruta es absoluta? ', absolutePath);
+	// console.log('¿La ruta es absoluta? ', absolutePath);
 	return absolutePath;
 }
 
 // Función para transformar ruta relativa a absoluta
 function transformPath(route) {
-	console.log('Transformando ruta relativa en absoluta');
+	// console.log('Transformando ruta relativa en absoluta');
 	const absolutePath = path.resolve(route);
-	console.log('Ruta absoluta: ', absolutePath);
+	// console.log('Ruta absoluta: ', absolutePath);
 	return absolutePath;
 }
 
@@ -33,7 +33,7 @@ return routeExists; */
 function isMarkdown(route) {
 	const markdownExtensions = ['.md', '.mkd', '.mdwn', '.mdown', '.mdtxt', '.mdtext', '.markdown', '.text'];
 	const extension = path.extname(route);
-	console.log('La extensión es: ', extension);
+	// console.log('La extensión es: ', extension);
 	if (markdownExtensions.includes(extension)) {
 		return route;
 	}
