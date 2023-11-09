@@ -21,25 +21,29 @@ function fileContent(file) {
 // Función para encontrar links y retornarlos en un arreglo
 function linksArray(data, file) {
 	// console.log(data);
-	const tokens = md.parse(data, {references: {}}); 
-	const links = [];
-	// console.log(tokens);
+	const urlRex = /\[([^\]]+)\]\((https[^\s)]+)/g;
+	const linkMatch = data.match(urlRex);
+	linkMatch.forEach(console.log);
+	//const tokens = md.parse(data, {references: {}}); 
+	//const links = [];
+	//console.log(tokens);
 	// console.log(tokens[0].children[4]);
-	tokens.map((token) => {
-		if (token.type === 'inline' && !token.content.startsWith('!')) {
-			const content = token.content;
-			const urlRex = /\[([^\]]+)\]\((https[^\s)]+)/;
-			//const urlRex = /\[(.*?)\]\((.*?)\)/;
-			const linkMatch = content.match(urlRex);
-			if (linkMatch) {
-				const text = linkMatch[1];
-				const href = linkMatch[2];
-				// const file = clc.magentaBright(file);
-				links.push({ href, text, file });
-			}
-		}
-	});
-	return links;
+	// tokens.map((token) => {
+	// 	if (token.type === 'inline' && !token.content.startsWith('!')) {
+	// 		const content = token.content;
+			
+	// 		//const urlRex = /\[(.*?)\]\((.*?)\)/;
+	// 		const linkMatch = content.match(urlRex);
+	// 		if (linkMatch) {
+	// 			const text = linkMatch[1];
+	// 			const href = linkMatch[2];
+	// 			// const file = clc.magentaBright(file);
+	// 			links.push({ href, text, file });
+	// 		}
+	// 		console.log(linkMatch)
+	//	}
+	//});
+	//return links;
 }
 
 // Función para validar links
