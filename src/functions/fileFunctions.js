@@ -1,7 +1,7 @@
 // FUNCIONES QUE MANEJAN LOS ARCHIVOS //
 const fs = require('node:fs/promises');
 // const { marked } = require('marked');
-const md = require('markdown-it')();
+// const md = require('markdown-it')();
 
 // Función para leer el contenido del archivo y retornar su contenido
 // Módulo fs. Usar readFile, NO readFileSync
@@ -21,30 +21,40 @@ function fileContent(file) {
 // Función para encontrar links y retornarlos en un arreglo
 function linksArray(data, file) {
 	// console.log(data);
-	const urlRex = /\[([^\]]+)\]\((https[^\s)]+)/g;
-	const linkMatch = data.match(urlRex);
-	linkMatch.forEach(console.log);
-	//const tokens = md.parse(data, {references: {}}); 
-	//const links = [];
-	//console.log(tokens);
-	// console.log(tokens[0].children[4]);
-	// tokens.map((token) => {
-	// 	if (token.type === 'inline' && !token.content.startsWith('!')) {
-	// 		const content = token.content;
-			
-	// 		//const urlRex = /\[(.*?)\]\((.*?)\)/;
-	// 		const linkMatch = content.match(urlRex);
-	// 		if (linkMatch) {
-	// 			const text = linkMatch[1];
-	// 			const href = linkMatch[2];
-	// 			// const file = clc.magentaBright(file);
-	// 			links.push({ href, text, file });
-	// 		}
-	// 		console.log(linkMatch)
-	//	}
-	//});
-	//return links;
+	const links = [];
+	const urlRex = /\[([^\]]*)\]\(([^)]*)\)(?:\s*\{([^}]*)\})?/g;
+
+	let linkMatch;
+	while ((linkMatch = urlRex.exec(data))) {
+		const text = linkMatch[1];
+		const href = linkMatch[2];
+		links.push({ href, text, file });
+	}
+	// console.log(links);
+	return links;
 }
+
+// const linkMatch = data.match(urlRex);
+// linkMatch.forEach(console.log);
+//const tokens = md.parse(data, {references: {}}); 
+//const links = [];
+//console.log(tokens);
+//console.log(tokens[0].children[4]);
+// tokens.map((token) => {
+// 	if (token.type === 'inline' && !token.content.startsWith('!')) {
+// 		const content = token.content;
+// 		const urlRex = /\[(.*?)\]\((.*?)\)/; /\[([^\]]+)\]\((https[^\s)]+)\)/g
+// 		const linkMatch = content.match(urlRex);
+// 		if (linkMatch) {
+// 			const text = linkMatch[1];
+// 			const href = linkMatch[2];
+// 			// const file = clc.magentaBright(file);
+// 			links.push({ href, text, file });
+// 		}
+//	}
+//});
+//return links;
+
 
 // Función para validar links
 function validateLinks(links) {

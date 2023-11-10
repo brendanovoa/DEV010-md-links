@@ -44,8 +44,7 @@ describe('linksArray()', () => {
 		const result = linksArray(data, file);
 
 		// Verifica la longitud del resultado
-		// expect(result.length).toHaveLength(3);
-		console.log(result);
+		expect(result.length).toBe(4);
 
 		// Verifica que cada objeto tenga las propiedades correctas
 		result.forEach((link) => {
@@ -60,6 +59,19 @@ describe('linksArray()', () => {
 		expect(result[2]).toMatchObject({ href: 'https://www.npmjs.com/', text: 'Sitio oficial de npm (en inglés)' });
 	});
 });
+
+// Devolver un array de links
+/*describe('validateLinks(links)', () => {
+	it('debería validar los links', () => {
+		return fileContent('/Users/brenda/DEV010-md-links/prueba.md')
+			.then(() => {
+				expect(true).toBe(false);
+			})
+			.catch((error) => {
+				expect(error instanceof Error).toBe(true);
+			});
+	});
+});*/
 
 /* 		`[{
               href: 'https://es.wikipedia.org/wiki/Markdown',
@@ -80,19 +92,3 @@ describe('linksArray()', () => {
 // expect(result).toHaveBeenCalledWith(data);
 // expect(result).toContain('https://nodejs.org/');
 // expect(result).arrayContaining(array);
-// expect(result.length).toHaveLength(3); 
-
-/* const file = '/Users/brenda/DEV010-md-links/prueba.md';
-		const data = `## 1. Links
-        [Markdown](https://es.wikipedia.org/wiki/Markdown) 
-        [Node.js](https://nodejs.org/)
-        [Sitio oficial de npm (en inglés)](https://www.npmjs.com/)
-        ## 2. Imágenes
-        ![md-links](https://github.com/Laboratoria/bootcamp/assets/12631491/fc6bc380-7824-4fab-ab8f-7ab53cd9d0e4)`;
-		const result = linksArray(data, file);
-		expect(result).toHaveLength(3);
-		result.forEach((link) => {
-			expect(link).toHaveProperty('text');
-			expect(link).toHaveProperty('href');
-			expect(link).toHaveProperty('file', file);
-		});*/
