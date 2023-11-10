@@ -14,7 +14,11 @@ function fileContent(file) {
 		})
 		.catch((err) => {
 			// console.error('Error', err);
-			throw err;
+			if (err.code === 'ENOENT') {
+				throw new Error(`El archivo no existe: ${file}`);
+			} else {
+				throw err;
+			}
 		});
 }
 
@@ -36,6 +40,7 @@ function linksArray(data, file) {
 
 // const linkMatch = data.match(urlRex);
 // linkMatch.forEach(console.log);
+
 //const tokens = md.parse(data, {references: {}}); 
 //const links = [];
 //console.log(tokens);
