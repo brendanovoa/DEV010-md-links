@@ -30,7 +30,6 @@ Permite analizar archivos con las siguientes extensiones: .md, .mkd, .mdwn, .mdo
 
 [![Resultados estadísticas](https://i.ibb.co/1TSNJ57/Screenshot-2023-11-13-at-16-54-55.png "Resultados estadísticas")]([url=https://i.ibb.co/1TSNJ57/Screenshot-2023-11-13-at-16-54-55.png "Resultados estadísticas")
 
-
 **Validación de Enlaces:** Utilizando la opción `--validate`, MD-Links verifica el estado de cada enlace haciendo una solicitud HTTP y muestra el código de status de las llamadas junto con un mensaje indicando si la solicitud fue exitosa o falló.
 
 [![Resultados con validate](https://i.ibb.co/61TmbY3/Screenshot-2023-11-07-at-12-47-26.png "Resultados con validate")]([url=https://ibb.co/https://i.ibb.co/61TmbY3/Screenshot-2023-11-07-at-12-47-26.png "Resultados con validate")
