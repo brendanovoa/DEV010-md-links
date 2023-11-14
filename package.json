@@ -5,7 +5,7 @@
   "type": "commonjs",
   "main": "cli.js",
   "bin": {
-    "md-links@brendanovoa": "cli.js"
+    "md-links-brendanovoa": "cli.js"
   },
   "repository": {
     "type": "git",

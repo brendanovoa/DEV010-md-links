@@ -27,36 +27,39 @@ Permite analizar archivos con las siguientes extensiones: .md, .mkd, .mdwn, .mdo
 **Extracción de Enlaces:** Obtén una lista de enlaces con información como el enlace en sí, el texto descriptivo y el archivo de origen.
 
 **Estadísticas de Enlaces: **Con la opción `--stats`, puedes obtener estadísticas sobre la cantidad total de enlaces, enlaces válidos y enlaces rotos.
-[![Ejemplo de estadísticas](https://imgur.com/bbx6Nlv "Ejemplo de estadísticas")](https://imgur.com/bbx6Nlv "Ejemplo de estadísticas")
+
+[![Resultados estadísticas](https://i.ibb.co/1TSNJ57/Screenshot-2023-11-13-at-16-54-55.png "Resultados estadísticas")]([url=https://i.ibb.co/1TSNJ57/Screenshot-2023-11-13-at-16-54-55.png "Resultados estadísticas")
+
 
 **Validación de Enlaces:** Utilizando la opción `--validate`, MD-Links verifica el estado de cada enlace haciendo una solicitud HTTP y muestra el código de status de las llamadas junto con un mensaje indicando si la solicitud fue exitosa o falló.
-[![Ejemplo Validación de enlaces](https://imgur.com/E4bHkn4 "Ejemplo Validación de enlaces")](https://imgur.com/E4bHkn4 "Ejemplo Validación de enlaces")
+
+[![Resultados con validate](https://i.ibb.co/61TmbY3/Screenshot-2023-11-07-at-12-47-26.png "Resultados con validate")]([url=https://ibb.co/https://i.ibb.co/61TmbY3/Screenshot-2023-11-07-at-12-47-26.png "Resultados con validate")
 
 [========]
 
 ### Instalación
 Para utilizar MD-Links, primero, instala la herramienta globalmente con npm en tu terminal:
 
-`npm install -g https://github.com/brendanovoa/md-links.git`
+`npm install -g md-links-brendanovoa`
 
 [========]
 
 ### Uso
 #### Comando Básico
 
-`md-links@brendanovoa ruta/al/archivo.md`
+`md-links-brendanovoa ruta/al/archivo.md`
 
 Esto mostrará una tabla con la información básica de los enlaces encontrados.
 
 #### Estadísticas de Enlaces
 
-`md-links@brendanovoa ruta/al/archivo.md --stats`
+`md-links-brendanovoa ruta/al/archivo.md --stats`
 
 Obtén estadísticas sobre la cantidad total de enlaces, enlaces válidos y enlaces rotos.
 
 #### Validación de Enlaces
 
-`md-links@brendanovoa ruta/al/archivo.md --validate`
+`md-links-brendanovoa ruta/al/archivo.md --validate`
 
 Además de la información básica, muestra el estado de cada enlace y un mensaje de éxito o falla.
 
@@ -67,7 +70,7 @@ Además de la información básica, muestra el estado de cada enlace y un mensaj
 **Diagrama de Flujo**
 Antes de iniciar el desarrollo, se creó un diagrama de flujo que detalla la lógica de la aplicación. Este diagrama describe el proceso que sigue la herramienta desde la recepción de una ruta hasta la extracción y análisis de los enlaces contenidos en un archivo Markdown.
 
-[![Diagrama de flujo](https://imgur.com/gzs66pr "Diagrama de flujo")](https://imgur.com/gzs66pr "Diagrama de flujo")
+[![Diagrama de flujo](https://i.ibb.co/RSLS22Q/Screenshot-2023-11-13-at-18-31-13.png "Diagrama de flujo")]([url=https://i.ibb.co/RSLS22Q/Screenshot-2023-11-13-at-18-31-13.png "Diagrama de flujo")
 
 A continuación, se presenta un desglose paso a paso:
 
@@ -108,7 +111,7 @@ Se testearon las funcionesde ruta (pathFunctions) y de manejo de archivo (file F
 
 Se obtuvieron los siguientes resultados:
 
-[![Pruebas unitarias](https://imgur.com/mvXpXoc "Pruebas unitarias")](https://imgur.com/mvXpXoc "Pruebas unitarias")
+[![Resultados pruebas unitarias](https://i.ibb.co/kHXcmJF/Screenshot-2023-11-13-at-18-32-20.png "Resultados pruebas unitarias")]([url=https://i.ibb.co/kHXcmJF/Screenshot-2023-11-13-at-18-32-20.png "Resultados pruebas unitarias")
 
 [========]
 
