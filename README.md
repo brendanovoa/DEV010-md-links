@@ -27,7 +27,7 @@ Permite analizar archivos con las siguientes extensiones: .md, .mkd, .mdwn, .mdo
 **Extracción de Enlaces:** Obtén una lista de enlaces con información como el enlace en sí, el texto descriptivo y el archivo de origen.
 
 **Estadísticas de Enlaces: **Con la opción `--stats`, puedes obtener estadísticas sobre la cantidad total de enlaces, enlaces válidos y enlaces rotos.
-[![Ejemplo de estadísticas](https://imgur.com/bbx6Nlv "Ejemplo de estadísticas")](https://imgur.com/bbx6Nlv "Ejemplo de estadísticas")
+[![Ejemplo de estadísticas](https://imgur.com/bbx6Nlv "Ejemplo de estadísticas")]
 
 **Validación de Enlaces:** Utilizando la opción `--validate`, MD-Links verifica el estado de cada enlace haciendo una solicitud HTTP y muestra el código de status de las llamadas junto con un mensaje indicando si la solicitud fue exitosa o falló.
 [![Ejemplo Validación de enlaces](https://imgur.com/E4bHkn4 "Ejemplo Validación de enlaces")](https://imgur.com/E4bHkn4 "Ejemplo Validación de enlaces")
