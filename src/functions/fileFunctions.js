@@ -34,7 +34,7 @@ function linksArray(data, file) {
 		const href = linkMatch[2];
 		links.push({ href, text, file });
 	}
-	// console.log(links);
+	//console.log(links);
 	return links;
 }
 
